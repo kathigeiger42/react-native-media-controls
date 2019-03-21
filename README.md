@@ -37,6 +37,12 @@ import MediaControls, { PLAYER_STATES } from 'react-native-media-controls';
           playerState={this.state.playerState}
           progress={this.state.currentTime}
           toolbar={this.renderToolbar()}
+          // playIcon={}
+          // pauseIcon={}
+          // replayIcon={}
+          // controlsColor={}
+          // controlsStyle={}
+          // iconStyle={}
         />
       </View>
     );
@@ -47,7 +53,7 @@ import MediaControls, { PLAYER_STATES } from 'react-native-media-controls';
 | Prop         | Type     | Optional | Default                | Description                                                          |
 |--------------|----------|----------|------------------------|----------------------------------------------------------------------|
 | toolbar      | node     | Yes      |                        | Add a custom view on the top of the controls                         |
-| mainColor    | string   | Yes      | rgba(12, 83, 175, 0.9) | Change custom color to the media controls                            |
+| mainColor    | string   | Yes      | rgba(12, 83, 175, 0.9) | Change custom color to the media controls (progress bar)             |
 | isLoading    | bool     | Yes      | false                  | When is loading                                                      |
 | isFullScreen | bool     | Yes      | false                  | To change icon state of fullscreen                                   |
 | progress     | number   | No       |                        | Current time of the media player                                     |
@@ -58,6 +64,12 @@ import MediaControls, { PLAYER_STATES } from 'react-native-media-controls';
 | onReplay     | function | Yes      |                        | Triggered when the replay button is pressed                          |
 | onSeek       | function | No       |                        | Triggered when the user released the slider                          |
 | onSeeking    | function | Yes      |                        | Triggered when the user is interacting with the slider               |
+| playIcon     | string   | Yes      |                        | Could pass a require('image path') or {uri='image path'} to show as the play icon   |
+| pauseIcon    | string   | Yes      |                        | Could pass a require('image path') or {uri='image path'} to show as the pause icon  |
+| replayIcon   | string   | Yes      |                        | Could pass a require('image path') or {uri='image path'} to show as the replay icon |
+| controlsColor| string   | Yes      |                        | Change custom background color to the media controls (play, pause and replay button)|
+| controlsStyle| object   | Yes      |                        | Change custom style to the media controls (play, pause and replay button)           |
+| iconStyle    | object   | Yes      |                        | Change custom style to the media controls icon (play, pause and replay)             |
 
 ## Constants 
 ```js

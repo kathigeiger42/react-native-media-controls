@@ -28,6 +28,11 @@ type Props = {
   onReplay: Function,
   onSeek: Function,
   onSeeking: Function,
+  playIcon: string,
+  pauseIcon: string,
+  replayIcon: string,
+  controlsColor: string,
+  controlsStyle: string,
 };
 
 type State = {
@@ -37,12 +42,17 @@ type State = {
 
 class MediaControls extends Component<Props, State> {
   static defaultProps = {
+    controlsColor: 'rgba(0,0,0,0)',
+    controlsStyle: null,
     isFullScreen: false,
     isLoading: false,
     mainColor: 'rgba(12, 83, 175, 0.9)',
     onFullScreen: noop,
     onReplay: noop,
     onSeeking: noop,
+    pauseIcon: require('./assets/ic_pause.png'),
+    playIcon: require('./assets/ic_play.png'),
+    replayIcon: require('./assets/ic_replay.png'),
   };
 
   state = {
@@ -88,12 +98,13 @@ class MediaControls extends Component<Props, State> {
   setLoadingView = () => <ActivityIndicator size="large" color="#FFF" />;
 
   setPlayerControls = (playerState: PlayerState) => {
+    const { controlsColor, controlsStyle } = this.props;
     const icon = this.getPlayerStateIcon(playerState);
     const pressAction =
       playerState === PLAYER_STATES.ENDED ? this.onReplay : this.onPause;
     return (
       <TouchableOpacity
-        style={[styles.playButton, { backgroundColor: this.props.mainColor }]}
+        style={[styles.playButton, { backgroundColor: controlsColor }, controlsStyle]}
         onPress={pressAction}
       >
         <Image source={icon} style={styles.playIcon} />

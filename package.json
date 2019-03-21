@@ -30,7 +30,7 @@
   "main": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:charliesbox/react-native-media-controls.git"
+    "url": "git@github.com:chrismang/react-native-media-controls.git"
   },
   "dependencies": {
     "react-native-slider": "^0.11.0"

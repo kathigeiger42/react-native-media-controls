@@ -32,7 +32,8 @@ type Props = {
   pauseIcon: string,
   replayIcon: string,
   controlsColor: string,
-  controlsStyle: string,
+  controlsStyle: Object,
+  iconStyle: Object,
 };
 
 type State = {
@@ -44,6 +45,7 @@ class MediaControls extends Component<Props, State> {
   static defaultProps = {
     controlsColor: 'rgba(0,0,0,0)',
     controlsStyle: null,
+    iconStyle: null,
     isFullScreen: false,
     isLoading: false,
     mainColor: 'rgba(12, 83, 175, 0.9)',
@@ -98,31 +100,36 @@ class MediaControls extends Component<Props, State> {
   setLoadingView = () => <ActivityIndicator size="large" color="#FFF" />;
 
   setPlayerControls = (playerState: PlayerState) => {
-    const { controlsColor, controlsStyle } = this.props;
+    const { controlsColor, controlsStyle, iconStyle } = this.props;
     const icon = this.getPlayerStateIcon(playerState);
     const pressAction =
       playerState === PLAYER_STATES.ENDED ? this.onReplay : this.onPause;
     return (
       <TouchableOpacity
-        style={[styles.playButton, { backgroundColor: controlsColor }, controlsStyle]}
+        style={[
+          styles.playButton,
+          { backgroundColor: controlsColor },
+          controlsStyle,
+        ]}
         onPress={pressAction}
       >
-        <Image source={icon} style={styles.playIcon} />
+        <Image source={icon} style={[styles.playIcon, iconStyle]} />
       </TouchableOpacity>
     );
   };
 
   getPlayerStateIcon = (playerState: PlayerState) => {
+    const { playIcon, pauseIcon, replayIcon } = this.props;
     switch (playerState) {
       case PLAYER_STATES.PAUSED:
         // eslint ignore next $FlowFixMe
-        return require('./assets/ic_play.png');
+        return playIcon;
       case PLAYER_STATES.PLAYING:
         // eslint ignore next $FlowFixMe
-        return require('./assets/ic_pause.png');
+        return pauseIcon;
       case PLAYER_STATES.ENDED:
         // eslint ignore next $FlowFixMe
-        return require('./assets/ic_replay.png');
+        return replayIcon;
       default:
         return null;
     }

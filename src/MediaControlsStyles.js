@@ -42,7 +42,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     width: 50,
     height: 50,
-    borderRadius: 3,
+    borderRadius: 25,
     borderWidth: 1.5,
     borderColor: 'rgba(255,255,255,0.5)',
   },
@@ -50,11 +50,6 @@ export default StyleSheet.create({
     width: 22,
     height: 22,
     resizeMode: 'contain',
-  },
-  replayIcon: {
-    width: 25,
-    height: 20,
-    resizeMode: 'stretch',
   },
   progressContainer: {
     flexDirection: 'row',

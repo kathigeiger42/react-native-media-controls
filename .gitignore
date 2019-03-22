@@ -43,3 +43,5 @@ example/android/app/libs
 example/android/keystores/debug.keystore
 example/android/gradlew
 example/android/gradlew.bat
+
+lib/

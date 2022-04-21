@@ -67,7 +67,7 @@ class MediaControls extends Component<Props, State> {
   }
 
   componentDidUpdate() {
-    if (props.playerState === PLAYER_STATES.ENDED) {
+    if (this.props.playerState === PLAYER_STATES.ENDED) {
       this.fadeInControls(false);
     }
   }
@@ -152,6 +152,7 @@ class MediaControls extends Component<Props, State> {
 
   fadeOutControls = (delay: number = 0) => {
     Animated.timing(this.state.opacity, {
+      useNativeDriver: false,
       toValue: 0,
       duration: 300,
       delay,
@@ -165,6 +166,7 @@ class MediaControls extends Component<Props, State> {
   fadeInControls = (loop: boolean = true) => {
     this.setState({ isVisible: true });
     Animated.timing(this.state.opacity, {
+      useNativeDriver: false,
       toValue: 1,
       duration: 300,
       delay: 0,

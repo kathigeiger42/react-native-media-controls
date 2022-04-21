@@ -11,7 +11,7 @@ import {
   TouchableWithoutFeedback,
   // eslint ignore next $FlowFixMe
 } from 'react-native';
-import Slider from 'react-native-slider';
+import {Slider} from '@miblanchard/react-native-slider';
 import styles from './MediaControlsStyles';
 import { humanizeVideoDuration, noop } from './Utils';
 import PLAYER_STATES, { type PlayerState } from './Constants';
@@ -66,8 +66,8 @@ class MediaControls extends Component<Props, State> {
     this.fadeOutControls(5000);
   }
 
-  componentWillReceiveProps(nextProps: Props) {
-    if (nextProps.playerState === PLAYER_STATES.ENDED) {
+  componentDidUpdate() {
+    if (props.playerState === PLAYER_STATES.ENDED) {
       this.fadeInControls(false);
     }
   }

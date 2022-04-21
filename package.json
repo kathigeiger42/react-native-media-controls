@@ -33,7 +33,7 @@
     "url": "git@github.com:chrismang/react-native-media-controls.git"
   },
   "dependencies": {
-    "react-native-slider": "^0.11.0"
+    "@miblanchard/react-native-slider": "^2.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

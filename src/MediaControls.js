@@ -66,8 +66,8 @@ class MediaControls extends Component<Props, State> {
     this.fadeOutControls(5000);
   }
 
-  componentDidUpdate() {
-    if (this.props.playerState === PLAYER_STATES.ENDED) {
+  componentDidUpdate(prevProps) {
+    if (this.props.playerState === PLAYER_STATES.ENDED && prevProps.playerState !== PLAYER_STATES.ENDED) {
       this.fadeInControls(false);
     }
   }
